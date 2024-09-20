@@ -1,0 +1,6 @@
+@Otomotiv.Api.Web_HostAddress = http://localhost:5249
+
+GET {{Otomotiv.Api.Web_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

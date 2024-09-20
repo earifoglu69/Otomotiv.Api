@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  otomotiv.api.web:
+    image: ${DOCKER_REGISTRY-}otomotivapiweb
+    build:
+      context: .
+      dockerfile: Otomotiv.Api.Web/Dockerfile
+    ports:
+        - "5000:5000"
+        - "5001:5001"
+
+  zarani.database:
+    image: postgres:latest
+    container_name: otomotiv.database
+    environment:
+      POSTGRES_DB : OtomotivDB
+      POSTGRES_USER : postgres
+      PGUSER : postgres
+      POSTGRES_PASSWORD : postgres
+    volumes:
+     - ./.containers/product-db:/var/lib/postgresql/data
+    ports:
+     - 5432:5432 
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
