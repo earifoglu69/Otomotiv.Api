@@ -21,30 +21,32 @@ namespace Otomotiv.Api.Common.IOC
 
             foreach (var service in services)
             {
-                var interfaceOfService = service.GetInterfaces().FirstOrDefault(x => x != transientType && x != scopedType && x != singletonType);
-
-                if (transientType.IsAssignableFrom(service))
+                var interfaceOfServices = service.GetInterfaces().Where(x => x != transientType && x != scopedType && x != singletonType);
+                foreach (var interfaceOfService in interfaceOfServices)
                 {
-                    if (interfaceOfService == null)
-                        serviceCollection.AddTransient(service);
-                    else
-                        serviceCollection.AddTransient(interfaceOfService, service);
-                }
+                    if (transientType.IsAssignableFrom(service))
+                    {
+                        if (interfaceOfService == null)
+                            serviceCollection.AddTransient(service);
+                        else
+                            serviceCollection.AddTransient(interfaceOfService, service);
+                    }
 
-                else if (scopedType.IsAssignableFrom(service))
-                {
-                    if (interfaceOfService == null)
-                        serviceCollection.AddScoped(service);
-                    else
-                        serviceCollection.AddScoped(interfaceOfService, service);
-                }
+                    else if (scopedType.IsAssignableFrom(service))
+                    {
+                        if (interfaceOfService == null)
+                            serviceCollection.AddScoped(service);
+                        else
+                            serviceCollection.AddScoped(interfaceOfService, service);
+                    }
 
-                else if (singletonType.IsAssignableFrom(service))
-                {
-                    if (interfaceOfService == null)
-                        serviceCollection.AddSingleton(service);
-                    else
-                        serviceCollection.AddSingleton(interfaceOfService, service);
+                    else if (singletonType.IsAssignableFrom(service))
+                    {
+                        if (interfaceOfService == null)
+                            serviceCollection.AddSingleton(service);
+                        else
+                            serviceCollection.AddSingleton(interfaceOfService, service);
+                    }
                 }
             }
 

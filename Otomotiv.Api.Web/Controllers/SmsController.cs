@@ -18,5 +18,18 @@ namespace Otomotiv.Api.Web.Controllers
             var response = await _smsService.GenerateCustomerSmsCode(brandId);
             return Ok(response);
         }
+
+        [HttpGet("AudiExtraMethod")]
+        public async Task<IActionResult> AudiExtraMethod()
+        {
+            var response = await _smsService.AudiExtraMethod();
+            return Ok(response);
+        }
+        [HttpGet("SeatExtraMethod")]
+        public async Task<IActionResult> SeatExtraMethod()
+        {
+            var response = await _smsService.SeatExtraMethod();
+            return Ok(response);
+        }
     }
 }

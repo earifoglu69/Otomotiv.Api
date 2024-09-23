@@ -5,13 +5,18 @@ using System.Security.Cryptography;
 
 namespace Otomotiv.Api.Brands.Audi.Services
 {
-    public class AudiSmsService : BaseSmsService , IScopedService
+    public class AudiSmsService : BaseSmsService , IAudiSmsService, IScopedService
     {
         private readonly IVehicleService _vehicleService;
 
         public AudiSmsService(IVehicleService vehicleService)
         {
             _vehicleService=vehicleService;
+        }
+
+        public Task<string> ExtraAudiSmsMethod()
+        {
+            return Task.FromResult("This is Audi Extra Service");
         }
 
         public override async Task<string> GenerateSmsCode()

@@ -9,11 +9,17 @@ using System.Threading.Tasks;
 
 namespace Otomotiv.Api.Brands.Seat.Services
 {
-    public class SeatSmsService : BaseSmsService, IScopedService
+    public class SeatSmsService : BaseSmsService, IScopedService, ISeatSmsService
     {
 
         public SeatSmsService()
         {
+        }
+
+        public Task<string> ExtraSeatSmsMethod()
+        {
+            return Task.FromResult("This is Seat Extra Service");
+
         }
 
         public override async Task<string> GenerateSmsCode()
