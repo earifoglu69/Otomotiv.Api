@@ -15,9 +15,8 @@ namespace Otomotiv.Application
 {
     public static class ServiceModule
     {
-        public static void Configure(IServiceCollection services, ConfigurationManager configuration)
+        public static void Configure(IServiceCollection services, IConfiguration configuration)
         {
-            IServiceProvider serviceProvider = services.BuildServiceProvider();
             services.UseIocLoader();
 
             InfrastructureModule.Configure(services, configuration);
@@ -26,7 +25,6 @@ namespace Otomotiv.Application
             BrandVolksWagenModule.Configure(services, configuration);
             SeatModule.Configure(services, configuration);
             TurkuazModule.Configure(services, configuration);
-            serviceProvider = services.BuildServiceProvider();
         }
     }
 }

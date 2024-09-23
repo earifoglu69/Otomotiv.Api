@@ -7,9 +7,9 @@ namespace Otomotiv.Api.Common
 {
     public static class ClientModule
     {
-        public static void Configure(IServiceCollection services, ConfigurationManager configuration)
+        public static void Configure(IServiceCollection services, IConfiguration configuration)
         {
-           IocLoader.UseIocLoader(services);
+            services.UseIocLoader();
         }
     }
 }

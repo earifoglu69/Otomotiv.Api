@@ -11,9 +11,9 @@ namespace Otomotiv.Api.Brands.Seat
 {
     public static class SeatModule
     {
-        public static void Configure(IServiceCollection services, ConfigurationManager configuration)
+        public static void Configure(IServiceCollection services, IConfiguration configuration)
         {
-            IocLoader.UseIocLoader(services);
+            services.UseIocLoader();
         }
     }
 }

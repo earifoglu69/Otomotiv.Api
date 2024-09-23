@@ -21,7 +21,7 @@ namespace Otomotiv.Api.Common.IOC
 
             foreach (var service in services)
             {
-                var interfaceOfServices = service.GetInterfaces().Where(x => x != transientType && x != scopedType && x != singletonType);
+                var interfaceOfServices = service.GetInterfaces().Where(x => x != transientType && x != scopedType && x != singletonType).ToList();
                 foreach (var interfaceOfService in interfaceOfServices)
                 {
                     if (transientType.IsAssignableFrom(service))

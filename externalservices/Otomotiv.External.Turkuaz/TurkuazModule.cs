@@ -6,7 +6,7 @@ namespace Otomotiv.External.Turkuaz
 {
     public static class TurkuazModule
     {
-        public static void Configure(IServiceCollection services, ConfigurationManager configuration)
+        public static void Configure(IServiceCollection services, IConfiguration configuration)
         {
             services.UseIocLoader();
         }

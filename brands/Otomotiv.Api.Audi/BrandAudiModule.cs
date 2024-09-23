@@ -7,7 +7,7 @@ namespace Otomotiv.Api.Brands.Audi
 {
     public static class BrandAudiModule
     {
-        public static void Configure(IServiceCollection services, ConfigurationManager configuration)
+        public static void Configure(IServiceCollection services, IConfiguration configuration)
         {
             services.UseIocLoader();
         }

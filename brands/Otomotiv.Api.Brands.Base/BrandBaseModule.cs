@@ -6,7 +6,7 @@ namespace Otomotiv.Api.Brands.Base
 {
     public static class BrandBaseModule
     {
-        public static void Configure(IServiceCollection services, ConfigurationManager configuration)
+        public static void Configure(IServiceCollection services, IConfiguration configuration)
         {
             services.UseIocLoader();
         }

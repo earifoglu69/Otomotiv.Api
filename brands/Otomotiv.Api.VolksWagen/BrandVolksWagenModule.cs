@@ -7,7 +7,7 @@ namespace Otomotiv.Api.Brands.VolksWagen
 {
     public static class BrandVolksWagenModule
     {
-        public static void Configure(IServiceCollection services, ConfigurationManager configuration)
+        public static void Configure(IServiceCollection services, IConfiguration configuration)
         {
             services.UseIocLoader();
         }

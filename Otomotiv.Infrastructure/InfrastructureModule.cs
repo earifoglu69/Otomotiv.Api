@@ -9,9 +9,11 @@ namespace Otomotiv.Infrastructure
 {
     public static class InfrastructureModule
     {
-        public static void Configure(IServiceCollection services, ConfigurationManager configuration)
+        public static void Configure(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<OtomotivDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("OtomotivConnection")));
+            services.AddDbContext<OtomotivDbContext>(options =>
+                options.UseNpgsql(configuration.GetConnectionString("OtomotivConnection")));
+
             services.AddTransient(typeof(IRepositoryAsync<>), typeof(RepositoryAsync<>));
             services.AddTransient<IUnitOfWork, UnitOfWork.UnitOfWork>();
         }
