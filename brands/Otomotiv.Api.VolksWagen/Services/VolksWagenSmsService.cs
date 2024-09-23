@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Otomotiv.Api.Brands.VolksWagen.Services
 {
-    public class VolksWagenSmsService : BaseSmsService, IScopedService
+    public class VolksWagenSmsService : BaseSmsService, IVolksWagenSmsService, IScopedService
     {
     }
 }
